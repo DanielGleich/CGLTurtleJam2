@@ -30,6 +30,7 @@ public class Movement : MonoBehaviour
     public bool isMovementPaused = false;
     public bool isLevelRotating = false;
     public bool isBlocked = false;
+    public bool isEverythingTidy = false;
 
     //DIMENSION INFORMATION
     public Vector3 nextStepTarget = Vector3.zero;
@@ -57,7 +58,7 @@ public class Movement : MonoBehaviour
         }
 
         // Roomba does not move when room is rotating
-        if (!isLevelRotating && isMoving && !isMovementPaused && !isBlocked && ((useEnergy && energy > 0) || !useEnergy))
+        if (!isLevelRotating && isMoving && !isMovementPaused && !isBlocked && !isEverythingTidy && ((useEnergy && energy > 0) || !useEnergy))
         {
             transform.position = Vector3.SmoothDamp(transform.position, nextStepTarget, ref velocity, smoothTime, movementSpeed);       
         }
@@ -70,7 +71,6 @@ public class Movement : MonoBehaviour
 
         RaycastHit2D[] hits = Physics2D.RaycastAll(origin, moveDirection, gridStepSize);
         foreach (RaycastHit2D hit in hits) {
-            Debug.Log(hit.collider.gameObject.layer);
             if (hit.collider.gameObject.layer == 31) { 
                 isBlocked = true;
             }
@@ -89,8 +89,14 @@ public class Movement : MonoBehaviour
         isMoving = true;
         SetNextStep();
         yield return new WaitForSeconds(movePhaseTime);
-        if (useEnergy)
+        if (useEnergy) { 
             energy--;
+            if (energy <= 0)
+            {
+                Die();
+            }
+        }
+        CheckLevelEndCondition();
         CheckNextStepForBlockage();
         if (!isMovementPaused)
             StartCoroutine(WaitPhase());
@@ -102,6 +108,14 @@ public class Movement : MonoBehaviour
         yield return new WaitForSeconds(waitPhaseTime);
         StartCoroutine(MovePhase());
 
+    }
+
+    void CheckLevelEndCondition()
+    {
+        if (trashManager.trashLeft == 0)
+        {
+            isEverythingTidy = true;
+        }
     }
 
     public void FinishRotation()
@@ -126,6 +140,11 @@ public class Movement : MonoBehaviour
         }
         return null;
     }
+
+    void Die() {
+    
+    }
+
 
     void InitArrowDirection()
     {
