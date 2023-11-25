@@ -7,7 +7,6 @@ public class LevelTracker : MonoBehaviour
 {
     // Start is called before the first frame update
     TextMeshProUGUI textmesh;
-
     void Start()
     {
         DontDestroyOnLoad(gameObject);
@@ -17,7 +16,7 @@ public class LevelTracker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int a = grid_script.currentLevel;
-        textmesh.text = " " + a.ToString();
+      
+     //   textmesh.text = "Level: " + script_grid_script.currentLevel.ToString();
     }
 }

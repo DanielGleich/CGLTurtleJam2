@@ -20,13 +20,13 @@ public class Movement : MonoBehaviour
     public bool useEnergy = true;
     public int energy = 15;
 
-    bool isMoving = false;
+    bool isMoving = true;
     bool isMovementPaused = false;
     bool isLevelRotating = false;
     bool isBlocked = false;
 
-    Vector3 nextStepTarget = Vector3.zero;
-    Vector2 moveDirection;
+    public Vector3 nextStepTarget = Vector3.zero;
+    public Vector2 moveDirection;
     Vector3 velocity;
 
     void Start()
@@ -77,7 +77,7 @@ public class Movement : MonoBehaviour
         transform.position = Vector3.SmoothDamp(transform.position, nextStepTarget, ref velocity, smoothTime, speed);       
     }
 
-    IEnumerator PrepNextStep() {
+    public IEnumerator PrepNextStep() {
         isMoving = true;
         nextStepTarget = new Vector3(transform.position.x + (moveDirection.x * gridStepSize), transform.position.y + (moveDirection.y * gridStepSize), transform.position.z);
         yield return new WaitForSeconds(gridStepSpeed);
