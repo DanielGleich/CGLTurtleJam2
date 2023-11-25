@@ -108,7 +108,10 @@ public class Movement : MonoBehaviour
         GameObject currentCell = GetCurrentCell();
 
 
-        gameObject.transform.Rotate(0, 0, gameObject.transform.rotation.z + (clockwiseRotation ? 90 : -90));
+        /*  gameObject.transform.Rotate(0, 0, gameObject.transform.rotation.z + (clockwiseRotation ? 90 : -90));
+          gameObject.transform.SetParent(currentCell.transform);
+          
+  */
         gameObject.transform.SetParent(currentCell.transform);
         gameObject.transform.localPosition = Vector3.zero;
         gameObject.transform.SetParent(GameObject.FindGameObjectWithTag("Grid").transform, true);
