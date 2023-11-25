@@ -137,7 +137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2739440526317221994, guid: 8a8c26a1fb00f3a49aaa67bc659edf06, type: 3}
       propertyPath: m_TagString
-      value: Trash
+      value: Trashmanager
       objectReference: {fileID: 0}
     - target: {fileID: 4285805073394616754, guid: 8a8c26a1fb00f3a49aaa67bc659edf06, type: 3}
       propertyPath: trashList.Array.size
