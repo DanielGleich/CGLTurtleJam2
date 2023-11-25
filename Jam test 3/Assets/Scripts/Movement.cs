@@ -22,6 +22,7 @@ public class Movement : MonoBehaviour
 
     bool isMoving = false;
     bool isMovementPaused = false;
+    bool isLevelRotating = false;
     bool isBlocked = false;
 
     Vector3 nextStepTarget = Vector3.zero;
@@ -69,7 +70,7 @@ public class Movement : MonoBehaviour
             isMovementPaused = !isMovementPaused;
         }
 
-        if (!isMoving && !isMovementPaused && !isBlocked && ( (useEnergy && energy > 0 ) || !useEnergy)) { 
+        if (!isMoving && !isMovementPaused && !isBlocked && !isLevelRotating &&( (useEnergy && energy > 0 ) || !useEnergy)) { 
             StartCoroutine(PrepNextStep());
             
         }
@@ -96,5 +97,13 @@ public class Movement : MonoBehaviour
                 isBlocked = true;
             }
         }
+    }
+
+    public void PauseForLevelRotation() {
+        isLevelRotating = true;
+    }
+
+    public void UnpauseForLevelRotation() {
+        isLevelRotating = false;
     }
 }
