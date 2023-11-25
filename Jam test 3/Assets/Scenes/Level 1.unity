@@ -1583,6 +1583,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid 12
       objectReference: {fileID: 0}
+    - target: {fileID: 4884699211465053548, guid: 3f432b998f4e02741883647989388d65, type: 3}
+      propertyPath: m_TagString
+      value: Grid
+      objectReference: {fileID: 0}
     - target: {fileID: 4923576189988887888, guid: 3f432b998f4e02741883647989388d65, type: 3}
       propertyPath: m_Color.b
       value: 0.6037736
@@ -6002,6 +6006,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2634856632420988408, guid: 8c4d39f2d8fcd3d47840a5eb58eb4988, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4003204632994047808, guid: 8c4d39f2d8fcd3d47840a5eb58eb4988, type: 3}
       propertyPath: spawnDirection
       value: 1
