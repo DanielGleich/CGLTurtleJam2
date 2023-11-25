@@ -135,10 +135,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trashmanager
       objectReference: {fileID: 0}
-    - target: {fileID: 2739440526317221994, guid: 8a8c26a1fb00f3a49aaa67bc659edf06, type: 3}
-      propertyPath: m_TagString
-      value: Trash
-      objectReference: {fileID: 0}
     - target: {fileID: 4285805073394616754, guid: 8a8c26a1fb00f3a49aaa67bc659edf06, type: 3}
       propertyPath: trashList.Array.size
       value: 2
@@ -648,8 +644,32 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4003204632994047808, guid: 8c4d39f2d8fcd3d47840a5eb58eb4988, type: 3}
+      propertyPath: smoothTime
+      value: 0.003
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003204632994047808, guid: 8c4d39f2d8fcd3d47840a5eb58eb4988, type: 3}
+      propertyPath: gridStepSize
+      value: 0.666666
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003204632994047808, guid: 8c4d39f2d8fcd3d47840a5eb58eb4988, type: 3}
+      propertyPath: movementSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003204632994047808, guid: 8c4d39f2d8fcd3d47840a5eb58eb4988, type: 3}
       propertyPath: spawnDirection
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5777925508546270741, guid: 8c4d39f2d8fcd3d47840a5eb58eb4988, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5818673426838249207, guid: 8c4d39f2d8fcd3d47840a5eb58eb4988, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5818673426838249207, guid: 8c4d39f2d8fcd3d47840a5eb58eb4988, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 5818673426838249207, guid: 8c4d39f2d8fcd3d47840a5eb58eb4988, type: 3}
       propertyPath: m_LocalPosition.x
@@ -694,6 +714,10 @@ PrefabInstance:
     - target: {fileID: 8285896561033687949, guid: 8c4d39f2d8fcd3d47840a5eb58eb4988, type: 3}
       propertyPath: m_Name
       value: Roomba
+      objectReference: {fileID: 0}
+    - target: {fileID: 8780138208191423921, guid: 8c4d39f2d8fcd3d47840a5eb58eb4988, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
