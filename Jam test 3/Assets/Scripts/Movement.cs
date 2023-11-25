@@ -20,12 +20,13 @@ public class Movement : MonoBehaviour
     public bool useEnergy = true;
     public int energy = 15;
 
-    bool isMoving = false;
+    bool isMoving = true;
     bool isMovementPaused = false;
+    bool isLevelRotating = false;
     bool isBlocked = false;
 
-    Vector3 nextStepTarget = Vector3.zero;
-    Vector2 moveDirection;
+    public Vector3 nextStepTarget = Vector3.zero;
+    public Vector2 moveDirection;
     Vector3 velocity;
 
     void Start()
@@ -69,14 +70,17 @@ public class Movement : MonoBehaviour
             isMovementPaused = !isMovementPaused;
         }
 
-        if (!isMoving && !isMovementPaused && !isBlocked && ( (useEnergy && energy > 0 ) || !useEnergy)) { 
+        if (!isMoving && !isMovementPaused && !isBlocked && !isLevelRotating &&( (useEnergy && energy > 0 ) || !useEnergy)) { 
             StartCoroutine(PrepNextStep());
             
         }
-        transform.position = Vector3.SmoothDamp(transform.position, nextStepTarget, ref velocity, smoothTime, speed);       
+        if (!isLevelRotating)
+        {
+            transform.position = Vector3.SmoothDamp(transform.position, nextStepTarget, ref velocity, smoothTime, speed);       
+        }
     }
 
-    IEnumerator PrepNextStep() {
+    public IEnumerator PrepNextStep() {
         isMoving = true;
         nextStepTarget = new Vector3(transform.position.x + (moveDirection.x * gridStepSize), transform.position.y + (moveDirection.y * gridStepSize), transform.position.z);
         yield return new WaitForSeconds(gridStepSpeed);
@@ -96,5 +100,43 @@ public class Movement : MonoBehaviour
                 isBlocked = true;
             }
         }
+    }
+
+    public void PauseForLevelRotation( bool clockwiseRotation ) {
+        isLevelRotating = true;
+        StopCoroutine(PrepNextStep());
+        GameObject currentCell = GetCurrentCell();
+
+
+         gameObject.transform.Rotate(0, 0, gameObject.transform.rotation.z + (clockwiseRotation ? 90 : -90));
+          //gameObject.transform.SetParent(currentCell.transform);
+          
+  
+        gameObject.transform.SetParent(currentCell.transform);
+        gameObject.transform.localPosition = Vector3.zero;
+       // gameObject.transform.SetParent(GameObject.FindGameObjectWithTag("Grid").transform, true);
+
+        StartCoroutine(waitForLevelRotation(1.2f));
+        
+    }
+
+    public void UnpauseForLevelRotation() {
+
+    }
+
+    GameObject GetCurrentCell() {
+        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, moveDirection);
+        foreach (RaycastHit2D hit in hits) {
+            if (hit.collider.gameObject.tag == "GridCell") {
+                return hit.collider.gameObject;
+            }
+        }
+        return null;
+    }
+
+    IEnumerator waitForLevelRotation(float t) { 
+        yield return new WaitForSeconds(t);
+        gameObject.transform.parent = null;
+        isLevelRotating = false;
     }
 }

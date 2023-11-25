@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Trash
+  - PlayerCircleCollider
+  - GridCell
+  - Grid
   layers:
   - Default
   - TransparentFX

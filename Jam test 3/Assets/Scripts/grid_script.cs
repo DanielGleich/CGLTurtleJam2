@@ -6,39 +6,45 @@ using UnityEngine.SceneManagement;
 
 public class grid_script : MonoBehaviour
 {
-    public Vector2[] gridSize;
     public static int currentLevel=1;
     string rotatingDirection = "none";
     int rotationCounter = 0;
-    float cellSize = 1;
-
+    TrashManager trashmananger;
+    GameObject roombaObject;
+    [SerializeField] private float rotateCooldown;
+    float cooldown;
 
     [SerializeField] GameObject Grid_Cell;
 
     void Start()
     {
-        CreateGrid();
-        CenterCameraOnObject();
-        DontDestroyOnLoad(gameObject);
-
+        trashmananger = GameObject.Find("Trashmanager").GetComponent<TrashManager>();
+        roombaObject = GameObject.FindGameObjectWithTag("Player");
+    }
+    private void Awake()
+    {
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+
+        if (trashmananger.trashLeft <=0 && Input.GetKeyDown(KeyCode.Space))
         {
             currentLevel++;
-            CreateGrid();
-            CenterCameraOnObject();
+            SceneManager.LoadScene("Level " + currentLevel.ToString());
         }
         if (rotatingDirection == "none")
         {
-            if (Input.GetKeyDown(KeyCode.LeftShift))
+            if (Input.GetKeyDown(KeyCode.LeftShift) && cooldown <= 0f && rotatingDirection!="right")
             {
+                roombaObject.GetComponent<Movement>().PauseForLevelRotation(false);
                 rotatingDirection = "left";
+                cooldown = rotateCooldown;
             }
-            if (Input.GetKeyDown(KeyCode.RightShift))
+            if (Input.GetKeyDown(KeyCode.RightShift) && cooldown <= 0f && rotatingDirection != "left")
             {
+                roombaObject.GetComponent<Movement>().PauseForLevelRotation(true);
                 rotatingDirection = "right";
+                cooldown = rotateCooldown;
             }
         }
         if (rotatingDirection == "left")
@@ -68,44 +74,6 @@ public class grid_script : MonoBehaviour
                 rotatingDirection = "none";
             }
         }
-    }
-
-    void CenterCameraOnObject()
-    {
-
-        foreach (Transform child in transform)
-        {
-            child.gameObject.transform.position -= new Vector3((gridSize[currentLevel].x * cellSize) / 2 - cellSize/2, (gridSize[currentLevel].y * cellSize) / 2 - cellSize/2, child.gameObject.transform.position.z);
-        }
-
-       // Vector3 targetCenter = transform.position;
-        //Camera.main.transform.position = new Vector3(targetCenter.x, targetCenter.y, transform.position.z);
-    }
-    void CreateGrid()
-    {
-        DeleteChildren();
-       if(SceneManager.GetActiveScene().name != "Level " + currentLevel) SceneManager.LoadScene("Level " + currentLevel);
-        cellSize = (10f / gridSize[currentLevel].x);
-        
-
-        for (int x = 0; x < gridSize[currentLevel].x; x++)
-        {
-            for (int y = 0; y < gridSize[currentLevel].y; y++)
-            {
-                Vector3 cellPosition = new Vector3(x*cellSize, y*cellSize, 0);
-                GameObject cell = Instantiate(Grid_Cell, cellPosition, Quaternion.identity);
-                cell.transform.parent = transform;
-                cell.transform.localScale = new Vector3(cellSize, cellSize, 1);
-
-            }
-        }
-    }
-    void DeleteChildren()
-    {
-        // Iterate through all children and destroy them
-        foreach (Transform child in transform)
-        {
-            Destroy(child.gameObject);
-        }
+        cooldown -= Time.deltaTime;
     }
 }
