@@ -5979,6 +5979,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4003204632994047808, guid: 8c4d39f2d8fcd3d47840a5eb58eb4988, type: 3}
+      propertyPath: useEnergy
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003204632994047808, guid: 8c4d39f2d8fcd3d47840a5eb58eb4988, type: 3}
       propertyPath: spawnDirection
       value: 1
       objectReference: {fileID: 0}
