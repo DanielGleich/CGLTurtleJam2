@@ -64,8 +64,7 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //CheckNextStepForBlockage();
-        Debug.DrawLine(transform.position, moveDirection * gridStepSize * 2, Color.red);
+        CheckNextStepForBlockage();
         if (Input.GetKeyDown(KeyCode.Space)) {
             isMovementPaused = !isMovementPaused;
         }
@@ -86,9 +85,16 @@ public class Movement : MonoBehaviour
         isMoving = false;
     }
 
-    //void CheckNextStepForBlockage() {
-    //    Debug.Log(moveDirection * gridStepSize);
-    //    //Debug.Log(Physics2D.Raycast(GetComponent<Transform>().position, moveDirection * gridStepSize * 2));
-    //    isBlocked = Physics2D.Raycast(GetComponent<Transform>().position, new Vector2(moveDirection.x * gridStepSize, moveDirection.y * gridStepSize));
-    //}
+    void CheckNextStepForBlockage()
+    {
+        Vector2 origin = GetComponent<Transform>().position;
+        isBlocked = false;
+
+        RaycastHit2D[] hits = Physics2D.RaycastAll(origin, moveDirection, gridStepSize);
+        foreach (RaycastHit2D hit in hits) {
+            if (hit.collider.gameObject.layer == 31) { 
+                isBlocked = true;
+            }
+        }
+    }
 }
