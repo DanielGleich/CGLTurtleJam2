@@ -80,7 +80,7 @@ public class Movement : MonoBehaviour
         }
     }
 
-    IEnumerator PrepNextStep() {
+    public IEnumerator PrepNextStep() {
         isMoving = true;
         nextStepTarget = new Vector3(transform.position.x + (moveDirection.x * gridStepSize), transform.position.y + (moveDirection.y * gridStepSize), transform.position.z);
         yield return new WaitForSeconds(gridStepSpeed);
