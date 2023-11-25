@@ -280,3 +280,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridStepSize: 1
   gridStepSpeed: 1
+  smoothTime: 0.3
+  speed: 10
+  spawnDirection: 1
+  useEnergy: 1
+  energy: 15
