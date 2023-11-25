@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 726136990513519673}
   - component: {fileID: 3975715435343881487}
   - component: {fileID: 6863367042381724092}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Black_Hole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
