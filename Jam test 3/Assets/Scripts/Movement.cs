@@ -92,7 +92,6 @@ public class Movement : MonoBehaviour
 
         RaycastHit2D[] hits = Physics2D.RaycastAll(origin, moveDirection, gridStepSize);
         foreach (RaycastHit2D hit in hits) {
-            Debug.Log(hit.collider.gameObject.layer);
             if (hit.collider.gameObject.layer == 31) { 
                 isBlocked = true;
             }

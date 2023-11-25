@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 502812181007099695}
   m_Layer: 0
   m_Name: Circle
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -243,6 +243,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5818673426838249207}
   - component: {fileID: 4003204632994047808}
+  - component: {fileID: 2634856632420988408}
   m_Layer: 0
   m_Name: Roomba
   m_TagString: Untagged
@@ -285,3 +286,15 @@ MonoBehaviour:
   spawnDirection: 1
   useEnergy: 1
   energy: 15
+--- !u!114 &2634856632420988408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8285896561033687949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0a1efccff3198b4fa678231caf20651, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
