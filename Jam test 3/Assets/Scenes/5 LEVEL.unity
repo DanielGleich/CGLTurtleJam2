@@ -772,6 +772,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid 12
       objectReference: {fileID: 0}
+    - target: {fileID: 4884699211465053548, guid: 3f432b998f4e02741883647989388d65, type: 3}
+      propertyPath: m_TagString
+      value: Grid
+      objectReference: {fileID: 0}
     - target: {fileID: 6313051829850442110, guid: 3f432b998f4e02741883647989388d65, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.00000020861626

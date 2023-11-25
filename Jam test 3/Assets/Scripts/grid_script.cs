@@ -11,7 +11,8 @@ public class grid_script : MonoBehaviour
     int rotationCounter = 0;
     TrashManager trashmananger;
     GameObject roombaObject;
-
+    [SerializeField] private float rotateCooldown;
+    float cooldown;
 
     [SerializeField] GameObject Grid_Cell;
 
@@ -33,15 +34,17 @@ public class grid_script : MonoBehaviour
         }
         if (rotatingDirection == "none")
         {
-            if (Input.GetKeyDown(KeyCode.LeftShift))
+            if (Input.GetKeyDown(KeyCode.LeftShift) && cooldown <= 0f && rotatingDirection!="right")
             {
                 roombaObject.GetComponent<Movement>().PauseForLevelRotation(false);
                 rotatingDirection = "left";
+                cooldown = rotateCooldown;
             }
-            if (Input.GetKeyDown(KeyCode.RightShift))
+            if (Input.GetKeyDown(KeyCode.RightShift) && cooldown <= 0f && rotatingDirection != "left")
             {
                 roombaObject.GetComponent<Movement>().PauseForLevelRotation(true);
                 rotatingDirection = "right";
+                cooldown = rotateCooldown;
             }
         }
         if (rotatingDirection == "left")
@@ -71,5 +74,6 @@ public class grid_script : MonoBehaviour
                 rotatingDirection = "none";
             }
         }
+        cooldown -= Time.deltaTime;
     }
 }
