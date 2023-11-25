@@ -106,4 +106,9 @@ public class Movement : MonoBehaviour
     public void UnpauseForLevelRotation() {
         isLevelRotating = false;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("Test2");
+    }
 }
