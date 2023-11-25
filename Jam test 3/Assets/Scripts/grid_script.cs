@@ -9,18 +9,25 @@ public class grid_script : MonoBehaviour
     public static int currentLevel=1;
     string rotatingDirection = "none";
     int rotationCounter = 0;
+    TrashManager trashmananger;
 
 
     [SerializeField] GameObject Grid_Cell;
 
     void Start()
     {
+        trashmananger = GameObject.Find("Trashmanager").GetComponent<TrashManager>();
+    }
+    private void Awake()
+    {
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+
+        if (trashmananger.trashLeft <=0 && Input.GetKeyDown(KeyCode.Space))
         {
             currentLevel++;
+            SceneManager.LoadScene("Level " + currentLevel.ToString());
         }
         if (rotatingDirection == "none")
         {
