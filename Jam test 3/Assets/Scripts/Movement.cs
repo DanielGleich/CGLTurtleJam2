@@ -7,34 +7,132 @@ using static UnityEngine.GraphicsBuffer;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine.EventSystems;
+using System.Linq;
 
 enum Direction { UP, RIGHT, LEFT, DOWN };
 public class Movement : MonoBehaviour
 {
+    //MOVEMENTPARAMETERS
     [SerializeField] float gridStepSize = 50f;
-    [SerializeField] float gridStepSpeed = 1f;
     [SerializeField] float smoothTime = .3f;
-    [SerializeField] float speed = 10f;
+    [SerializeField] float movementSpeed = 10f;
     [SerializeField] Direction spawnDirection;
 
+    [SerializeField] float movePhaseTime = .5f;
+    [SerializeField] float waitPhaseTime = .5f;
+
+    //ENERGY MANAGEMENT
     public bool useEnergy = true;
     public int energy = 15;
 
-    bool isMoving = true;
-    bool isMovementPaused = false;
-    bool isLevelRotating = false;
-    bool isBlocked = false;
+    //STATES
+    public bool isMoving = false;
+    public bool isMovementPaused = false;
+    public bool isLevelRotating = false;
+    public bool isBlocked = false;
 
+    //DIMENSION INFORMATION
     public Vector3 nextStepTarget = Vector3.zero;
     public Vector2 moveDirection;
     Vector3 velocity;
 
+    TrashManager trashManager;
+
     void Start()
     {
-        StartCoroutine(PrepNextStep());
+        trashManager = GameObject.FindGameObjectWithTag("Trashmanager").GetComponent<TrashManager>();
+        InitArrowDirection();
+        StartCoroutine(MovePhase());
+    }
+
+    void Update()
+    {
+        // PAUSE PLAYER MOVEMENT
+        if (Input.GetKeyDown(KeyCode.Space) && trashManager.trashLeft > 0) {
+            isMovementPaused = !isMovementPaused;
+
+            if (!isMovementPaused) { 
+                StartCoroutine(MovePhase()); 
+            }
+        }
+
+        // Roomba does not move when room is rotating
+        if (!isLevelRotating && isMoving && !isMovementPaused && !isBlocked && ((useEnergy && energy > 0) || !useEnergy))
+        {
+            transform.position = Vector3.SmoothDamp(transform.position, nextStepTarget, ref velocity, smoothTime, movementSpeed);       
+        }
+    }
+
+    void CheckNextStepForBlockage()
+    {
+        Vector2 origin = GetComponent<Transform>().position;
+        isBlocked = false;
+
+        RaycastHit2D[] hits = Physics2D.RaycastAll(origin, moveDirection, gridStepSize);
+        foreach (RaycastHit2D hit in hits) {
+            Debug.Log(hit.collider.gameObject.layer);
+            if (hit.collider.gameObject.layer == 31) { 
+                isBlocked = true;
+            }
+        }
+    }
+
+    public void InitiateRotation( bool clockwiseRotation ) {
+        isLevelRotating = true;
+
+        gameObject.transform.Rotate(0, 0, gameObject.transform.rotation.z + (clockwiseRotation ? 90 : -90));
+        CenterRoomba();
+        gameObject.transform.SetParent(GameObject.FindGameObjectWithTag("Grid").transform);
+    }
+
+    IEnumerator MovePhase() {
+        isMoving = true;
+        SetNextStep();
+        yield return new WaitForSeconds(movePhaseTime);
+        if (useEnergy)
+            energy--;
+        CheckNextStepForBlockage();
+        if (!isMovementPaused)
+            StartCoroutine(WaitPhase());
+    }
+
+    IEnumerator WaitPhase()
+    {
+        isMoving = false;
+        yield return new WaitForSeconds(waitPhaseTime);
+        StartCoroutine(MovePhase());
+
+    }
+
+    public void FinishRotation()
+    {
+        isLevelRotating = false;
+        SetNextStep();
+    }
+
+
+    void SetNextStep()
+    {
+        nextStepTarget = new Vector3(transform.position.x + (moveDirection.x * gridStepSize), transform.position.y + (moveDirection.y * gridStepSize), transform.position.z);
+    }
+
+    GameObject GetCurrentCell() {
+    //Returns cells that are in front of the roomba
+        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, moveDirection);
+        foreach (RaycastHit2D hit in hits) {
+            if (hit.collider.gameObject.tag == "GridCell") {
+                return hit.collider.gameObject;
+            }
+        }
+        return null;
+    }
+
+    void InitArrowDirection()
+    {
         int tempX = 0;
         int tempY = 0;
-        switch (spawnDirection) {
+        switch (spawnDirection)
+        {
             case Direction.UP:
                 tempX = 0;
                 tempY = 1;
@@ -62,81 +160,10 @@ public class Movement : MonoBehaviour
         moveDirection = new Vector2(tempX, tempY);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        CheckNextStepForBlockage();
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            isMovementPaused = !isMovementPaused;
-        }
-
-        if (!isMoving && !isMovementPaused && !isBlocked && !isLevelRotating &&( (useEnergy && energy > 0 ) || !useEnergy)) { 
-            StartCoroutine(PrepNextStep());
-            
-        }
-        if (!isLevelRotating)
-        {
-            transform.position = Vector3.SmoothDamp(transform.position, nextStepTarget, ref velocity, smoothTime, speed);       
-        }
-    }
-
-    public IEnumerator PrepNextStep() {
-        isMoving = true;
-        nextStepTarget = new Vector3(transform.position.x + (moveDirection.x * gridStepSize), transform.position.y + (moveDirection.y * gridStepSize), transform.position.z);
-        yield return new WaitForSeconds(gridStepSpeed);
-        if (useEnergy)
-            energy--;
-        isMoving = false;
-    }
-
-    void CheckNextStepForBlockage()
-    {
-        Vector2 origin = GetComponent<Transform>().position;
-        isBlocked = false;
-
-        RaycastHit2D[] hits = Physics2D.RaycastAll(origin, moveDirection, gridStepSize);
-        foreach (RaycastHit2D hit in hits) {
-            if (hit.collider.gameObject.layer == 31) { 
-                isBlocked = true;
-            }
-        }
-    }
-
-    public void PauseForLevelRotation( bool clockwiseRotation ) {
-        isLevelRotating = true;
-        StopCoroutine(PrepNextStep());
+    void CenterRoomba() {
         GameObject currentCell = GetCurrentCell();
-
-
-         gameObject.transform.Rotate(0, 0, gameObject.transform.rotation.z + (clockwiseRotation ? 90 : -90));
-          //gameObject.transform.SetParent(currentCell.transform);
-          
-  
         gameObject.transform.SetParent(currentCell.transform);
         gameObject.transform.localPosition = Vector3.zero;
-       // gameObject.transform.SetParent(GameObject.FindGameObjectWithTag("Grid").transform, true);
-
-        StartCoroutine(waitForLevelRotation(1.2f));
-        
-    }
-
-    public void UnpauseForLevelRotation() {
-
-    }
-
-    GameObject GetCurrentCell() {
-        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, moveDirection);
-        foreach (RaycastHit2D hit in hits) {
-            if (hit.collider.gameObject.tag == "GridCell") {
-                return hit.collider.gameObject;
-            }
-        }
-        return null;
-    }
-
-    IEnumerator waitForLevelRotation(float t) { 
-        yield return new WaitForSeconds(t);
-        gameObject.transform.parent = null;
-        isLevelRotating = false;
+        gameObject.transform.SetParent(null);
     }
 }
