@@ -10,6 +10,7 @@ public class grid_script : MonoBehaviour
     string rotatingDirection = "none";
     int rotationCounter = 0;
     TrashManager trashmananger;
+    GameObject roombaObject;
 
 
     [SerializeField] GameObject Grid_Cell;
@@ -17,6 +18,7 @@ public class grid_script : MonoBehaviour
     void Start()
     {
         trashmananger = GameObject.Find("Trashmanager").GetComponent<TrashManager>();
+        roombaObject = GameObject.FindGameObjectWithTag("Player");
     }
     private void Awake()
     {
@@ -33,10 +35,12 @@ public class grid_script : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.LeftShift))
             {
+                roombaObject.GetComponent<Movement>().PauseForLevelRotation(false);
                 rotatingDirection = "left";
             }
             if (Input.GetKeyDown(KeyCode.RightShift))
             {
+                roombaObject.GetComponent<Movement>().PauseForLevelRotation(true);
                 rotatingDirection = "right";
             }
         }

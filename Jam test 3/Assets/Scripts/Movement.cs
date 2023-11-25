@@ -74,7 +74,10 @@ public class Movement : MonoBehaviour
             StartCoroutine(PrepNextStep());
             
         }
-        transform.position = Vector3.SmoothDamp(transform.position, nextStepTarget, ref velocity, smoothTime, speed);       
+        if (!isLevelRotating)
+        {
+            transform.position = Vector3.SmoothDamp(transform.position, nextStepTarget, ref velocity, smoothTime, speed);       
+        }
     }
 
     IEnumerator PrepNextStep() {
@@ -99,16 +102,38 @@ public class Movement : MonoBehaviour
         }
     }
 
-    public void PauseForLevelRotation() {
+    public void PauseForLevelRotation( bool clockwiseRotation ) {
         isLevelRotating = true;
+        StopCoroutine(PrepNextStep());
+        GameObject currentCell = GetCurrentCell();
+
+
+        gameObject.transform.Rotate(0, 0, gameObject.transform.rotation.z + (clockwiseRotation ? 90 : -90));
+        gameObject.transform.SetParent(currentCell.transform);
+        gameObject.transform.localPosition = Vector3.zero;
+        gameObject.transform.SetParent(GameObject.FindGameObjectWithTag("Grid").transform, true);
+
+        StartCoroutine(waitForLevelRotation(1.2f));
+        
     }
 
     public void UnpauseForLevelRotation() {
-        isLevelRotating = false;
+
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log("Test2");
+    GameObject GetCurrentCell() {
+        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, moveDirection);
+        foreach (RaycastHit2D hit in hits) {
+            if (hit.collider.gameObject.tag == "GridCell") {
+                return hit.collider.gameObject;
+            }
+        }
+        return null;
+    }
+
+    IEnumerator waitForLevelRotation(float t) { 
+        yield return new WaitForSeconds(t);
+        gameObject.transform.parent = null;
+        isLevelRotating = false;
     }
 }
