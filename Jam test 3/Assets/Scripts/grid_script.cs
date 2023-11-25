@@ -4,76 +4,67 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+enum RotatingDirection {NONE, LEFT, RIGHT };
+
 public class grid_script : MonoBehaviour
 {
-    public static int currentLevel=1;
-    string rotatingDirection = "none";
-    int rotationCounter = 0;
-    TrashManager trashmananger;
-    GameObject roombaObject;
-    [SerializeField] private float rotateCooldown;
-    float cooldown;
+    public static int currentLevel = 1;
 
-    [SerializeField] GameObject Grid_Cell;
+    [SerializeField] RotatingDirection lastRotationInput = RotatingDirection.NONE;
+    [SerializeField] RotatingDirection currentInputProcess = RotatingDirection.NONE;
+    [SerializeField] int rotationCounter = 0;
+
+    GameObject roombaObject;
+    TrashManager trashmanager;
+    Movement roombaMovement;
 
     void Start()
     {
-        trashmananger = GameObject.Find("Trashmanager").GetComponent<TrashManager>();
+        trashmanager = GameObject.Find("Trashmanager").GetComponent<TrashManager>();
         roombaObject = GameObject.FindGameObjectWithTag("Player");
+        roombaMovement = roombaObject.GetComponent<Movement>();
     }
-    private void Awake()
-    {
-    }
+
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+            lastRotationInput = RotatingDirection.LEFT;
 
-        if (trashmananger.trashLeft <=0 && Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.RightShift))
+            lastRotationInput = RotatingDirection.RIGHT;
+
+
+        if (lastRotationInput != RotatingDirection.NONE && currentInputProcess == RotatingDirection.NONE && !roombaMovement.isMoving) { 
+            currentInputProcess = lastRotationInput;
+            roombaMovement.InitiateRotation(currentInputProcess == RotatingDirection.RIGHT);
+        }
+
+        if (trashmanager.trashLeft <=0 && Input.GetKeyDown(KeyCode.Space))
         {
             currentLevel++;
             SceneManager.LoadScene("Level " + currentLevel.ToString());
         }
-        if (rotatingDirection == "none")
+        
+        if (currentInputProcess != RotatingDirection.NONE && roombaMovement.isLevelRotating)
         {
-            if (Input.GetKeyDown(KeyCode.LeftShift) && cooldown <= 0f && rotatingDirection!="right")
-            {
-                roombaObject.GetComponent<Movement>().PauseForLevelRotation(false);
-                rotatingDirection = "left";
-                cooldown = rotateCooldown;
-            }
-            if (Input.GetKeyDown(KeyCode.RightShift) && cooldown <= 0f && rotatingDirection != "left")
-            {
-                roombaObject.GetComponent<Movement>().PauseForLevelRotation(true);
-                rotatingDirection = "right";
-                cooldown = rotateCooldown;
-            }
+            RotateGrid();
         }
-        if (rotatingDirection == "left")
-        {
-           if(rotationCounter<90)
-            {
-                transform.Rotate(0, 0, 1);
-                rotationCounter++;
-            }
-            else
-            {
-                rotationCounter = 0;
-                rotatingDirection = "none";
-            }
-        }
+    }
 
-        if (rotatingDirection == "right")
+    void RotateGrid() {
+        int rotateAngle = currentInputProcess == RotatingDirection.LEFT ? 1 : -1;
+
+        if (rotationCounter < 90)
         {
-            if (rotationCounter < 90)
-            {
-                transform.Rotate(0, 0, -1);
-                rotationCounter++;
-            }
-            else
-            {
-                rotationCounter = 0;
-                rotatingDirection = "none";
-            }
+            transform.Rotate(0, 0, rotateAngle);
+            rotationCounter++;
         }
-        cooldown -= Time.deltaTime;
+        else
+        {
+            rotationCounter = 0;
+            lastRotationInput = RotatingDirection.NONE;
+            currentInputProcess = RotatingDirection.NONE;
+            roombaMovement.FinishRotation();
+        }
     }
 }
