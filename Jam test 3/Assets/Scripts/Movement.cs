@@ -20,13 +20,13 @@ public class Movement : MonoBehaviour
     public bool useEnergy = true;
     public int energy = 15;
 
-    bool isMoving = false;
+    bool isMoving = true;
     bool isMovementPaused = false;
     bool isLevelRotating = false;
     bool isBlocked = false;
 
-    Vector3 nextStepTarget = Vector3.zero;
-    Vector2 moveDirection;
+    public Vector3 nextStepTarget = Vector3.zero;
+    public Vector2 moveDirection;
     Vector3 velocity;
 
     void Start()
