@@ -10,6 +10,8 @@ TagManager:
   - Grid
   - Trashmanager
   - Battery
+  - LevelManager
+  - Canvas
   layers:
   - Default
   - TransparentFX

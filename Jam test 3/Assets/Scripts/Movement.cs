@@ -34,7 +34,7 @@ public class Movement : MonoBehaviour
     public bool isBlocked = false;
     public bool isEverythingTidy = false;
 
-    public int currentLevel = 1;
+    levelManager levelman;
 
     //DIMENSION INFORMATION
     public Vector3 nextStepTarget = Vector3.zero;
@@ -46,12 +46,17 @@ public class Movement : MonoBehaviour
     void Start()
     {
         trashManager = GameObject.FindGameObjectWithTag("Trashmanager").GetComponent<TrashManager>();
+        levelman = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<levelManager>();
         InitArrowDirection();
         StartCoroutine(MovePhase());
     }
 
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
         // PAUSE PLAYER MOVEMENT
         if (Input.GetKeyDown(KeyCode.Space)) {
             if(trashManager.trashLeft > 0)
@@ -63,14 +68,11 @@ public class Movement : MonoBehaviour
                     StartCoroutine(MovePhase());
                 }
             }
-            if (energy <= 0 && trashManager.trashLeft > 0)
-            {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            }
+
             if (trashManager.trashLeft <= 0)
             {
-                currentLevel++;
-                SceneManager.LoadScene(currentLevel.ToString() + " LEVEL");
+                levelman.currentLevel++;
+                SceneManager.LoadScene(levelman.currentLevel.ToString() + " LEVEL");
             }
         }
 
@@ -102,7 +104,7 @@ public class Movement : MonoBehaviour
         gameObject.transform.SetParent(GameObject.FindGameObjectWithTag("Grid").transform);
     }
 
-    IEnumerator MovePhase() {
+   public IEnumerator MovePhase() {
         CheckNextStepForBlockage();
         isMoving = true;
         SetNextStep();
