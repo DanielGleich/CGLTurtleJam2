@@ -7,4 +7,12 @@ using UnityEngine.SceneManagement;
 public class levelManager : MonoBehaviour
 {
     public int currentLevel;
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            if (currentLevel < 10) currentLevel++;
+            SceneManager.LoadScene(currentLevel.ToString() + " LEVEL");
+        }
+    }
 }
