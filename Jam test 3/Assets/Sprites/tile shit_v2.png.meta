@@ -37,18 +37,18 @@ TextureImporter:
     filterMode: 1
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
-    wrapW: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 520
+  spritePixelsToUnits: 510
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -95,19 +95,6 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Server
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -186,15 +173,36 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
+      name: tile shit_v2_5
+      rect:
+        serializedVersion: 2
+        x: 3640
+        y: 5200
+        width: 520
+        height: 520
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb4ff0b5a606a9e499f2891a43b36496
+      internalID: 794770904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
       name: tile shit_v2_6
       rect:
         serializedVersion: 2
         x: 4160
-        y: 5202
+        y: 5200
         width: 520
         height: 520
-      alignment: 9
-      pivot: {x: 0.64602053, y: 0.60842097}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -244,6 +252,48 @@ TextureImporter:
       bones: []
       spriteID: 7e35ab1d6a5b2e84b95cb91133c847a3
       internalID: 1710524489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile shit_v2_9
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 4680
+        width: 520
+        height: 520
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54d74777f59603a47a067ab88c899089
+      internalID: -1974988635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile shit_v2_10
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 4680
+        width: 520
+        height: 520
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c1dae42993b8874b85e2f330402f14c
+      internalID: -658195127
       vertices: []
       indices: 
       edges: []
@@ -333,6 +383,216 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
+      name: tile shit_v2_15
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 4160
+        width: 520
+        height: 520
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9dece5686741d37499176177c6af3a01
+      internalID: -860695142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile shit_v2_16
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 4160
+        width: 520
+        height: 520
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6d327bbb972915449d0dab298838a39
+      internalID: 1057013392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile shit_v2_17
+      rect:
+        serializedVersion: 2
+        x: 4680
+        y: 4160
+        width: 520
+        height: 520
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d72de45750dd1bd488a212d157cc81fb
+      internalID: 391655201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile shit_v2_18
+      rect:
+        serializedVersion: 2
+        x: 5200
+        y: 4160
+        width: 520
+        height: 520
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fd3d236b7ecf0c4eb0cef509a489867
+      internalID: 913810265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile shit_v2_19
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 3640
+        width: 520
+        height: 520
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d09456802a2ed33448f6084b63ad13ee
+      internalID: -560317383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile shit_v2_20
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 3640
+        width: 520
+        height: 520
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20dac8ae6747ff943952b819a6544d76
+      internalID: -1290386999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile shit_v2_21
+      rect:
+        serializedVersion: 2
+        x: 2080
+        y: 3640
+        width: 520
+        height: 520
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c15ecc4c19cabb647a970776e832d718
+      internalID: -868268696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile shit_v2_22
+      rect:
+        serializedVersion: 2
+        x: 2600
+        y: 3640
+        width: 520
+        height: 520
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e50fd50c1d1ffba4f9bde03911b065d9
+      internalID: 1060631477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile shit_v2_23
+      rect:
+        serializedVersion: 2
+        x: 3120
+        y: 3640
+        width: 520
+        height: 520
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4801efff1c335aa4580492259d711e3e
+      internalID: 1945757117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile shit_v2_24
+      rect:
+        serializedVersion: 2
+        x: 3640
+        y: 3640
+        width: 520
+        height: 520
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f45f42cdf771334db83419e67f1b4f5
+      internalID: 808413743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
       name: tile shit_v2_25
       rect:
         serializedVersion: 2
@@ -349,6 +609,27 @@ TextureImporter:
       bones: []
       spriteID: 0bc9ccb26e35a5141aea59dbdddacd47
       internalID: -523404562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile shit_v2_26
+      rect:
+        serializedVersion: 2
+        x: 5200
+        y: 3640
+        width: 520
+        height: 520
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26f110dedd5e32440965028fca174aed
+      internalID: 774811843
       vertices: []
       indices: 
       edges: []
@@ -375,6 +656,27 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
+      name: tile shit_v2_28
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 3120
+        width: 520
+        height: 520
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5bca0b4d9019cd49a7db11a284d5f0d
+      internalID: -930361963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
       name: tile shit_v2_29
       rect:
         serializedVersion: 2
@@ -391,6 +693,111 @@ TextureImporter:
       bones: []
       spriteID: f7706283426fb74449e98ff4f8e20d16
       internalID: -1897711108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile shit_v2_30
+      rect:
+        serializedVersion: 2
+        x: 2600
+        y: 3120
+        width: 520
+        height: 520
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b76bd4b8a0581f4389728975f1e13d4
+      internalID: 1786407626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile shit_v2_31
+      rect:
+        serializedVersion: 2
+        x: 3120
+        y: 3120
+        width: 520
+        height: 520
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97ed383d30265db42b96e8833861f205
+      internalID: 944788655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile shit_v2_32
+      rect:
+        serializedVersion: 2
+        x: 3640
+        y: 3120
+        width: 520
+        height: 520
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a7ac0979e1ca3c4facd7323a222c1a2
+      internalID: 1035639374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile shit_v2_33
+      rect:
+        serializedVersion: 2
+        x: 4680
+        y: 3120
+        width: 520
+        height: 520
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15a587e035cfe304681b7641396b2d2a
+      internalID: -2057184861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile shit_v2_34
+      rect:
+        serializedVersion: 2
+        x: 5200
+        y: 3120
+        width: 520
+        height: 520
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cc17812e0094174794585ab4741a288
+      internalID: 1473361049
       vertices: []
       indices: 
       edges: []
@@ -417,6 +824,132 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
+      name: tile shit_v2_36
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 2600
+        width: 520
+        height: 520
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0e8aebb720682e4db0596bba1536da7
+      internalID: -1895040747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile shit_v2_37
+      rect:
+        serializedVersion: 2
+        x: 2080
+        y: 2600
+        width: 520
+        height: 520
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b42bac27dd43b744ba44d2fe6f632dcf
+      internalID: 208387515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile shit_v2_38
+      rect:
+        serializedVersion: 2
+        x: 2600
+        y: 2600
+        width: 520
+        height: 520
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7d9f1547377c964a82d35e692daae7b
+      internalID: -424448154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile shit_v2_39
+      rect:
+        serializedVersion: 2
+        x: 3120
+        y: 2600
+        width: 520
+        height: 520
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 778a89b6e8957314ab44567179e1b6f1
+      internalID: -1269319640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile shit_v2_40
+      rect:
+        serializedVersion: 2
+        x: 3640
+        y: 2600
+        width: 520
+        height: 520
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc70da6c8b53a594c948167545124872
+      internalID: 1121808127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile shit_v2_41
+      rect:
+        serializedVersion: 2
+        x: 4160
+        y: 2600
+        width: 520
+        height: 520
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38ef13c6a6ee62346bc52029a5c2800d
+      internalID: 759946121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
       name: tile shit_v2_42
       rect:
         serializedVersion: 2
@@ -438,15 +971,36 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
+      name: tile shit_v2_43
+      rect:
+        serializedVersion: 2
+        x: 5200
+        y: 2600
+        width: 520
+        height: 520
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca4a176740df53140be622a0d3480bc3
+      internalID: 2128080373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
       name: tile shit_v2_44
       rect:
         serializedVersion: 2
         x: 2080
-        y: 2071
+        y: 2080
         width: 2600
         height: 1040
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -454,6 +1008,90 @@ TextureImporter:
       bones: []
       spriteID: 1188501a4cf98184aa85d898d3340faa
       internalID: -819274850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile shit_v2_45
+      rect:
+        serializedVersion: 2
+        x: 2600
+        y: 2080
+        width: 520
+        height: 520
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0dd6be2faa9ea4b428552145a78d3d1d
+      internalID: 1870685130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile shit_v2_46
+      rect:
+        serializedVersion: 2
+        x: 3120
+        y: 2080
+        width: 520
+        height: 520
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2df724948cd2e44ebc9edce24f4af2c
+      internalID: -1260652247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile shit_v2_47
+      rect:
+        serializedVersion: 2
+        x: 3640
+        y: 2080
+        width: 520
+        height: 520
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e5cb6df552b14a4cace80593d7252c6
+      internalID: 302171677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile shit_v2_48
+      rect:
+        serializedVersion: 2
+        x: 4160
+        y: 2080
+        width: 520
+        height: 520
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61bce7390b8920448836e446f58607a5
+      internalID: 1020262041
       vertices: []
       indices: 
       edges: []
@@ -480,6 +1118,27 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
+      name: tile shit_v2_50
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 1560
+        width: 520
+        height: 520
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55e6aba7a03781e469df2be28cd2a838
+      internalID: -1346791363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
       name: tile shit_v2_52
       rect:
         serializedVersion: 2
@@ -501,6 +1160,195 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
+      name: tile shit_v2_54
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 1040
+        width: 520
+        height: 520
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 581087d7286e8e24abc217cbdab9c535
+      internalID: -999760364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile shit_v2_55
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 1040
+        width: 520
+        height: 520
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 623a34e68d42e724684362c7fae65d7d
+      internalID: -161826697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile shit_v2_56
+      rect:
+        serializedVersion: 2
+        x: 1560
+        y: 1040
+        width: 520
+        height: 520
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28fa8a87e3105ff43a69967a2d054398
+      internalID: -1772532519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile shit_v2_57
+      rect:
+        serializedVersion: 2
+        x: 2080
+        y: 1040
+        width: 520
+        height: 520
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9be3c69dc093ad46a4d92d6ab6467b0
+      internalID: 967685210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile shit_v2_58
+      rect:
+        serializedVersion: 2
+        x: 2600
+        y: 1040
+        width: 520
+        height: 520
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4886419f49a82414b911bd2b24d96d66
+      internalID: 984863805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile shit_v2_59
+      rect:
+        serializedVersion: 2
+        x: 3640
+        y: 1040
+        width: 520
+        height: 520
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f449f56a2699c045aafa0dd3c6623a9
+      internalID: 1651578161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile shit_v2_60
+      rect:
+        serializedVersion: 2
+        x: 4160
+        y: 1040
+        width: 520
+        height: 520
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 881fd69a60c862f46a8960df26323a84
+      internalID: 1733538706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile shit_v2_61
+      rect:
+        serializedVersion: 2
+        x: 4680
+        y: 1040
+        width: 520
+        height: 520
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17785bda7f04ee34a921fa6b6da71ad7
+      internalID: 1426118958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile shit_v2_62
+      rect:
+        serializedVersion: 2
+        x: 5200
+        y: 1040
+        width: 520
+        height: 520
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9238b1f38907040488ee530d77f38e56
+      internalID: -1799677222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
       name: tile shit_v2_63
       rect:
         serializedVersion: 2
@@ -517,6 +1365,153 @@ TextureImporter:
       bones: []
       spriteID: 1afb02e67d3a11d4ea8dd7383890f751
       internalID: -1782095761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile shit_v2_64
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 520
+        width: 520
+        height: 520
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4358a43da263fd84b935f5070014e1a0
+      internalID: -1739816631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile shit_v2_65
+      rect:
+        serializedVersion: 2
+        x: 1560
+        y: 520
+        width: 520
+        height: 520
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d36dc126db51e414381bbe0805338bab
+      internalID: 1687710907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile shit_v2_66
+      rect:
+        serializedVersion: 2
+        x: 2080
+        y: 520
+        width: 520
+        height: 520
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09fe4c3e4a6da85418e05ca16b058f64
+      internalID: -1455488105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile shit_v2_67
+      rect:
+        serializedVersion: 2
+        x: 2600
+        y: 520
+        width: 520
+        height: 520
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b6d1e2a13187174ea0632ef2c17b23e
+      internalID: -1826350162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile shit_v2_69
+      rect:
+        serializedVersion: 2
+        x: 4160
+        y: 520
+        width: 520
+        height: 520
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47d12ff1c342e9040a32aab8e85b8750
+      internalID: 1127263478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile shit_v2_70
+      rect:
+        serializedVersion: 2
+        x: 4680
+        y: 520
+        width: 520
+        height: 520
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fdfbcb2844af384fa8a3cfe5f2ba017
+      internalID: -2125852105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile shit_v2_71
+      rect:
+        serializedVersion: 2
+        x: 5200
+        y: 520
+        width: 520
+        height: 520
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb00a8b4427f76d4ba8bbea420a325f8
+      internalID: 595918758
       vertices: []
       indices: 
       edges: []
