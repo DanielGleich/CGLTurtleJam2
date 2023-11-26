@@ -397,7 +397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridStepSize: 0.66
-  smoothTime: 0.01
+  smoothTime: 0.005
   movementSpeed: 10
   spawnDirection: 1
   movePhaseTime: 0.5
@@ -408,6 +408,7 @@ MonoBehaviour:
   isMovementPaused: 0
   isLevelRotating: 0
   isBlocked: 0
+  isEverythingTidy: 0
   nextStepTarget: {x: 0, y: 0, z: 0}
   moveDirection: {x: 0, y: 0}
 --- !u!114 &2634856632420988408

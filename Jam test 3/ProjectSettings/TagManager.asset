@@ -9,6 +9,7 @@ TagManager:
   - GridCell
   - Grid
   - Trashmanager
+  - Battery
   layers:
   - Default
   - TransparentFX
