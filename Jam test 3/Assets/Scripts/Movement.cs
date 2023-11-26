@@ -103,10 +103,11 @@ public class Movement : MonoBehaviour
     }
 
     IEnumerator MovePhase() {
+        CheckNextStepForBlockage();
         isMoving = true;
         SetNextStep();
         yield return new WaitForSeconds(movePhaseTime);
-        if (useEnergy) { 
+        if (useEnergy && energy > 0) { 
             energy--;
             if (energy <= 0)
             {
@@ -114,7 +115,6 @@ public class Movement : MonoBehaviour
             }
         }
         CheckLevelEndCondition();
-        CheckNextStepForBlockage();
         if (!isMovementPaused)
             StartCoroutine(WaitPhase());
     }
