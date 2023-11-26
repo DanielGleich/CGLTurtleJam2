@@ -19,5 +19,6 @@ public class TrasgLeft : MonoBehaviour
         Debug.Log("Object:" + trashman.trashLeft);
         Debug.Log("Trash left: " + trashman.trashLeft.ToString());
         tmg.text = "Trash Left: " + trashman.trashLeft.ToString();
+        if(trashman.trashLeft<=0) tmg.text = "PRESS SPACE FOR NEXT LEVEL";
     }
 }
