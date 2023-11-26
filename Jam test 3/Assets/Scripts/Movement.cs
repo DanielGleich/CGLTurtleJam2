@@ -23,6 +23,11 @@ public class Movement : MonoBehaviour
     [SerializeField] float movePhaseTime = .5f;
     [SerializeField] float waitPhaseTime = .5f;
 
+    //SOUND MANAGEMENT
+    [SerializeField] SoundManager powerSoundManager;
+    [SerializeField] SoundManager movementSoundManager;
+    [SerializeField] SoundManager eatSoundManager;
+
     //ENERGY MANAGEMENT
     public bool useEnergy = true;
     public int energy = 15;
@@ -48,6 +53,7 @@ public class Movement : MonoBehaviour
         trashManager = GameObject.FindGameObjectWithTag("Trashmanager").GetComponent<TrashManager>();
         InitArrowDirection();
         StartCoroutine(MovePhase());
+        powerSoundManager.PlayTurnOnSound();
     }
 
     void Update()
@@ -104,10 +110,17 @@ public class Movement : MonoBehaviour
 
     IEnumerator MovePhase() {
         CheckNextStepForBlockage();
-        isMoving = true;
-        SetNextStep();
-        yield return new WaitForSeconds(movePhaseTime);
-        if (useEnergy && energy > 0) { 
+        if (!isBlocked && energy > 0)
+        {
+            movementSoundManager.PlayVariation();
+            isMoving = true;
+            SetNextStep();
+            yield return new WaitForSeconds(movePhaseTime);
+            
+        }
+
+        if (useEnergy && energy > 0)
+        {
             energy--;
             if (energy <= 0)
             {
@@ -159,6 +172,7 @@ public class Movement : MonoBehaviour
     }
 
     void Die() {
+        powerSoundManager.PlayTurnOffSound();
     
     }
 
@@ -202,4 +216,10 @@ public class Movement : MonoBehaviour
         gameObject.transform.localPosition = Vector3.zero;
         gameObject.transform.SetParent(null);
     }
+
+    public void PlayEatSound()
+    {
+        eatSoundManager.PlayVariation();
+    }
+
 }

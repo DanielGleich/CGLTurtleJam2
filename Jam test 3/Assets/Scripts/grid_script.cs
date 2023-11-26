@@ -8,12 +8,12 @@ enum RotatingDirection {NONE, LEFT, RIGHT };
 
 public class grid_script : MonoBehaviour
 {
+    [SerializeField] SoundManager soundManager;
     public static int currentLevel = 1;
 
-    [SerializeField] RotatingDirection lastRotationInput = RotatingDirection.NONE;
-    [SerializeField] RotatingDirection currentInputProcess = RotatingDirection.NONE;
-    [SerializeField] int rotationCounter = 0;
-
+    RotatingDirection lastRotationInput = RotatingDirection.NONE;
+    RotatingDirection currentInputProcess = RotatingDirection.NONE;
+    int rotationCounter = 0;
     GameObject roombaObject;
     TrashManager trashmanager;
     Movement roombaMovement;
@@ -53,7 +53,8 @@ public class grid_script : MonoBehaviour
 
     void RotateGrid() {
         int rotateAngle = currentInputProcess == RotatingDirection.LEFT ? 1 : -1;
-
+        if (rotationCounter == 1)
+            soundManager.PlayVariation();
         if (rotationCounter < 90)
         {
             transform.Rotate(0, 0, rotateAngle);

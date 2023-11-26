@@ -4,20 +4,15 @@ using UnityEngine;
 
 public class BatteryCollect : MonoBehaviour
 {
-    [SerializeField] int energyAmount = 10; 
-    AudioSource soundManager;
-
-    private void Start()
-    {
-        soundManager = GetComponent<AudioSource>();
-    }
+    [SerializeField] int energyAmount = 10;
+    [SerializeField] SoundManager soundManager;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "PlayerCircleCollider") {
-            GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>().energy += energyAmount;
+            Movement temp = GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>();
+            temp.energy += energyAmount;
             Destroy(this.gameObject);
-            soundManager.Play();
         }
     }
 }
