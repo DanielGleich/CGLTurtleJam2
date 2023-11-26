@@ -8,6 +8,8 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine.EventSystems;
 using System.Linq;
+using System.Transactions;
+using UnityEngine.SceneManagement;
 
 enum Direction { UP, RIGHT, LEFT, DOWN };
 public class Movement : MonoBehaviour
@@ -31,6 +33,8 @@ public class Movement : MonoBehaviour
     public bool isLevelRotating = false;
     public bool isBlocked = false;
 
+    public int currentLevel = 1;
+
     //DIMENSION INFORMATION
     public Vector3 nextStepTarget = Vector3.zero;
     public Vector2 moveDirection;
@@ -48,11 +52,24 @@ public class Movement : MonoBehaviour
     void Update()
     {
         // PAUSE PLAYER MOVEMENT
-        if (Input.GetKeyDown(KeyCode.Space) && trashManager.trashLeft > 0) {
-            isMovementPaused = !isMovementPaused;
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            if(trashManager.trashLeft > 0)
+            {
+                isMovementPaused = !isMovementPaused;
 
-            if (!isMovementPaused) { 
-                StartCoroutine(MovePhase()); 
+                if (!isMovementPaused)
+                {
+                    StartCoroutine(MovePhase());
+                }
+            }
+            if (energy <= 0 && trashManager.trashLeft > 0)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            }
+            if (trashManager.trashLeft <= 0)
+            {
+                currentLevel++;
+                SceneManager.LoadScene(currentLevel.ToString() + " LEVEL");
             }
         }
 
