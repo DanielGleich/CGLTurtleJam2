@@ -61,7 +61,10 @@ public class Movement : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.R))
         {
+            Destroy(this.gameObject);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            isMovementPaused = false;
+
         }
         // PAUSE PLAYER MOVEMENT
         if (Input.GetKeyDown(KeyCode.Space)) {
