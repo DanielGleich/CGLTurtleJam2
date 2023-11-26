@@ -16,8 +16,6 @@ public class LevelHud : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Object:" + roomba_mov);
-        Debug.Log("Level: " + roomba_mov.currentLevel.ToString());
         tmg.text = "Level: " + roomba_mov.currentLevel.ToString();
     }
 }

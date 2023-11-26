@@ -20,8 +20,6 @@ public class Battery : MonoBehaviour
         {
             
         }
-        Debug.Log("Object:" + roomba_mov);
-        Debug.Log("Battery: " + roomba_mov.energy.ToString());
         tmg.text = "" + roomba_mov.energy.ToString();
     }
 }
