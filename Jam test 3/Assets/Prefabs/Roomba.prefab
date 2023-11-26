@@ -594,3 +594,6 @@ MonoBehaviour:
   - type: 3
     audioFile: {fileID: 8300000, guid: f9cb3e495ab142b46874c4e5c4c4b761, type: 3}
     volume: 100
+  - type: 5
+    audioFile: {fileID: 8300000, guid: e2d5ed0401c38604198cb230e5c6b1f0, type: 3}
+    volume: 100
