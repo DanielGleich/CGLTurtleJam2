@@ -23,11 +23,21 @@ public class SoundManager : MonoBehaviour
     void Start()
     {
         soundPlayer = gameObject.AddComponent<AudioSource>();
+        soundPlayer.playOnAwake = false;
         selectedSounds = new List<SoundSet>();
         foreach (SoundSet soundSet in soundClips) 
         { 
             if (soundType == soundSet.type)
                 selectedSounds.Add(soundSet); 
+        }
+
+        if (soundType == SoundType.BACKGROUND_MUSIC)
+        {
+            DontDestroyOnLoad(this.gameObject);
+            soundPlayer.loop = true;
+            soundPlayer.volume = selectedSounds[0].volume / 100f;
+            soundPlayer.clip = selectedSounds[0].audioFile;
+            soundPlayer.Play(); 
         }
     }
 
