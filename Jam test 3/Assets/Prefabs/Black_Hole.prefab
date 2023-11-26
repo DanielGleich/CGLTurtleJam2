@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1763663820417428135}
   - component: {fileID: 726136990513519673}
   - component: {fileID: 3975715435343881487}
-  - component: {fileID: 6863367042381724092}
   m_Layer: 31
   m_Name: Black_Hole
   m_TagString: Untagged
@@ -74,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 9
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -131,15 +130,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &6863367042381724092
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4721630642451716213}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7d6f21531341ad4fa61d3a3f672bb47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
