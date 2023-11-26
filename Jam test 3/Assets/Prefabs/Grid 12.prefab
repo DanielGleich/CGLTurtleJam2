@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6313051829850442110}
   - component: {fileID: 8797859044154857002}
+  - component: {fileID: 8606077401247004286}
   m_Layer: 0
   m_Name: Grid 12
   m_TagString: Untagged
@@ -189,6 +190,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8debe0af95852e547a2374b32eb52a76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundManager: {fileID: 8606077401247004286}
+--- !u!114 &8606077401247004286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4884699211465053548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57c2a2557dd669a42b164ff008c6b569, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundType: 6
+  soundClips:
+  - type: 6
+    audioFile: {fileID: 8300000, guid: 77fee63503addef4a859e49e348f6164, type: 3}
+    volume: 25
+  - type: 6
+    audioFile: {fileID: 8300000, guid: d7ca4966dc6f75c48a9d9f12a3e248b6, type: 3}
+    volume: 25
+  - type: 6
+    audioFile: {fileID: 8300000, guid: df7a8aeb444018346a06bd079b996a2d, type: 3}
+    volume: 25
 --- !u!1001 &96393364147221338
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -94,8 +94,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4836808655169225543}
   - component: {fileID: 7651474271814486103}
-  - component: {fileID: 5514666673741086306}
   - component: {fileID: 5953476570635599665}
+  - component: {fileID: 5514666673741086306}
+  - component: {fileID: 7554505609581068570}
   m_Layer: 0
   m_Name: Battery
   m_TagString: Battery
@@ -164,19 +165,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &5514666673741086306
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5262834450348031858}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cd53520f0996da44b741019bae4a924, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  energyAmount: 10
 --- !u!114 &5953476570635599665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,3 +178,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 2ea6401d5d0a15e4fbb212c65825567d, type: 3}
+--- !u!114 &5514666673741086306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5262834450348031858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cd53520f0996da44b741019bae4a924, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  energyAmount: 10
+  soundManager: {fileID: 7554505609581068570}
+--- !u!114 &7554505609581068570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5262834450348031858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57c2a2557dd669a42b164ff008c6b569, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundType: 2
+  soundClips: []
