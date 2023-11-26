@@ -80,7 +80,7 @@ public class Movement : MonoBehaviour
 
             if (trashManager.trashLeft <= 0)
             {
-                levelman.currentLevel++;
+               if(levelman.currentLevel<10) levelman.currentLevel++;
                 SceneManager.LoadScene(levelman.currentLevel.ToString() + " LEVEL");
             }
         }
