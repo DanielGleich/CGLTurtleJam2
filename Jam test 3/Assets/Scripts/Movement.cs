@@ -40,6 +40,7 @@ public class Movement : MonoBehaviour
     public bool isEverythingTidy = false;
 
     levelManager levelman;
+    SpriteRenderer pauseIndicator;
 
     //DIMENSION INFORMATION
     public Vector3 nextStepTarget = Vector3.zero;
@@ -50,6 +51,7 @@ public class Movement : MonoBehaviour
 
     void Start()
     {
+        pauseIndicator = GameObject.FindGameObjectWithTag("PauseIndicator").GetComponent<SpriteRenderer>();
         trashManager = GameObject.FindGameObjectWithTag("Trashmanager").GetComponent<TrashManager>();
         levelman = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<levelManager>();
         InitArrowDirection();
@@ -66,6 +68,9 @@ public class Movement : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
         }
+
+        pauseIndicator.enabled = isMovementPaused;
+
         // PAUSE PLAYER MOVEMENT
         if (Input.GetKeyDown(KeyCode.Space)) {
             if(trashManager.trashLeft > 0)
