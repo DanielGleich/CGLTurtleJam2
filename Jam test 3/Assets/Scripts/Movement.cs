@@ -62,8 +62,8 @@ public class Movement : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.R))
         {
             Destroy(this.gameObject);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             isMovementPaused = false;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
         }
         // PAUSE PLAYER MOVEMENT
@@ -117,6 +117,14 @@ public class Movement : MonoBehaviour
         CheckNextStepForBlockage();
         if (!isBlocked && energy > 0)
         {
+            if (useEnergy)
+            {
+                energy--;
+                if (energy <= 0)
+                {
+                    Die();
+                }
+            }
             movementSoundManager.PlayVariation();
             isMoving = true;
             SetNextStep();
@@ -124,14 +132,6 @@ public class Movement : MonoBehaviour
             
         }
 
-        if (useEnergy && energy > 0)
-        {
-            energy--;
-            if (energy <= 0)
-            {
-                Die();
-            }
-        }
         CheckLevelEndCondition();
         if (!isMovementPaused)
             StartCoroutine(WaitPhase());
