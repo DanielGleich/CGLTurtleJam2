@@ -40,6 +40,7 @@ public class Movement : MonoBehaviour
     public bool isEverythingTidy = false;
 
     levelManager levelman;
+    SpriteRenderer pauseIndicator;
 
     //DIMENSION INFORMATION
     public Vector3 nextStepTarget = Vector3.zero;
@@ -50,6 +51,7 @@ public class Movement : MonoBehaviour
 
     void Start()
     {
+        pauseIndicator = GameObject.FindGameObjectWithTag("PauseIndicator").GetComponent<SpriteRenderer>();
         trashManager = GameObject.FindGameObjectWithTag("Trashmanager").GetComponent<TrashManager>();
         levelman = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<levelManager>();
         InitArrowDirection();
@@ -62,10 +64,13 @@ public class Movement : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.R))
         {
             Destroy(this.gameObject);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             isMovementPaused = false;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
         }
+
+        pauseIndicator.enabled = isMovementPaused;
+
         // PAUSE PLAYER MOVEMENT
         if (Input.GetKeyDown(KeyCode.Space)) {
             if(trashManager.trashLeft > 0)
@@ -117,6 +122,14 @@ public class Movement : MonoBehaviour
         CheckNextStepForBlockage();
         if (!isBlocked && energy > 0)
         {
+            if (useEnergy)
+            {
+                energy--;
+                if (energy <= 0)
+                {
+                    Die();
+                }
+            }
             movementSoundManager.PlayVariation();
             isMoving = true;
             SetNextStep();
@@ -124,14 +137,6 @@ public class Movement : MonoBehaviour
             
         }
 
-        if (useEnergy && energy > 0)
-        {
-            energy--;
-            if (energy <= 0)
-            {
-                Die();
-            }
-        }
         CheckLevelEndCondition();
         if (!isMovementPaused)
             StartCoroutine(WaitPhase());
