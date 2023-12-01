@@ -12,6 +12,8 @@ TagManager:
   - Battery
   - LevelManager
   - Canvas
+  - PauseIndicator
+  - backGroundMusic
   layers:
   - Default
   - TransparentFX
